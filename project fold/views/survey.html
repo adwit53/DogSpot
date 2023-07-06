@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js">
+        $(document).ready(function() {
+      $("#form").validate({
+        errorClass: "error fail-alert",
+        validClass: "valid success-alert",
+        rules: {
+          name : {
+            required: true,
+            minlength: 4
+          },
+          
+          email: {
+            required: true,
+            email: true
+          },
+         
+        messages : {
+          name: {
+            minlength: "Name should be at least 3 characters"
+          },
+          
+          email: {
+            email: "The email should be in the format: abc@domain.tld"
+          },
+        
+          }
+        }
+      });
+    });
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+h3{
+color:black;
+font-size: x-large;
+text-align: center;
+}
+body{
+background-color: crimson;
+text-align: center;
+}
+.container {
+    border-radius: 5px;
+    background-color: lightgray;
+    padding: 20px;
+}
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+p{
+    color: crimson;
+}
+a{
+    color:black;
+}
+    </style>
+
+    
+    <title>DogSpot | SURVEY FORM</title></head>
+        <body>
+            <h3>SURVEY FORM</h3>
+        <div ng-controller="ExampleController">
+            <div class="container">
+    <form id="form" class="simple-form" action="http://localhost:8000/get_survey" method="GET">
+      <label for="name">Name   :          <input id='name' name='name'type="text" ng-model="user.name" minlength="3" required/></label><br />
+      <label for="email">E-mail :        <input id='email' name='email' type="email" ng-model="user.email" required/></label><br />
+      Do you like dogs? <label><input type="radio" name="likedogs" ng-model="user.preference" value="yes1" />yes</label>
+      <label><input type="radio" ng-model="user.preference" value="no1" name="likedogs"/>no</label><br />
+      Will you adopt dogs? <label><input type="radio" ng-model="user.preference" value="yes2" name="adoptdogs"/>yes</label>
+      <label><input type="radio" ng-model="user.preference" value="no2" name="adoptdogs"/>no</label><br />
+      Do you have dogs? <label><input type="radio" ng-model="user.preference" value="yes3" name="havedogs"/>yes</label>
+      <label><input type="radio" ng-model="user.preference" value="no3" name="havedogs"/>no</label><br />
+      Did you have dogs? <label><input type="radio" ng-model="user.preference" value="yes4" name="haddogs"/>yes</label>
+      <label><input type="radio" ng-model="user.preference" value="no4" name="haddogs"/>no</label><br />
+      Do you know about adoption? <label><input type="radio" ng-model="user.preference" value="yes5" name="aboutadoption"/>yes</label>
+      <label><input type="radio" ng-model="user.preference" value="no5" name="aboutadoption"/>no</label><br />
+      Will you prefer adoption or buying? <label><input type="radio" ng-model="user.preference" value="yes6" name="preferadopt"/>Adoption</label>
+      <label><input type="radio" ng-model="user.preference" value="no6" name="preferadopt"/>Buying</label><br />
+      <input type="button" ng-click="reset()" value="Reset"  align="center"/>
+      <input type="submit"  value="Save" />
+    </form>
+    
+    <div class="bottom">
+        <p>Copyright © 2021 <a href="main.html">Dogspot</a> All rights reserved</p>
+      </div>
+  </div></div>
+  
+  <script>
+    angular.module('formExample', [])
+      .controller('ExampleController', ['$scope', function($scope) {
+        $scope.master = {};
+  
+        $scope.update = function(user) {
+          $scope.master = angular.copy(user);
+        };
+  
+        $scope.reset = function() {
+          $scope.user = angular.copy($scope.master);
+        };
+  
+        $scope.reset();
+      }]);
+  </script>
+  </body></html>

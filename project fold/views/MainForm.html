@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+    <title>DogSpot | ADOPTION</title>
+</head>
+
+<body bgcolor="crimson">
+    <div class="appform" >
+        <h1 style="text-align: center; color:black;"> Adoption Application,Contract and Waiver</h1>
+    </div>
+    <div class="container">
+        <div id="FormSubmittedMessage">
+
+        </div>
+        <form ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate action="http://localhost:8081/get_adopt" method="GET">
+            <div class="row">
+                <div class="col-25">
+                    <span>
+                        <label>Perspective Pet Parent</label>
+                        <label style="color: red;">*</label>
+                    </span>
+                </div>
+
+                <div class="col-25">
+                    <input id="PerspectivePetParentFirstName" type="text" name="firstname"></input>
+                    <Label>First Name</Label>
+                </div>
+
+                <div class="col-25">
+                    <input id="PerspectivePetParentLastName" type="text" name="lastname"></input>
+                    <Label>Last Name</Label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <span>
+                        <label>Name of Pet You Wish to Adopt</label>
+                        <label style="color: red;">*</label>
+                    </span>
+                </div>
+
+                <div class="col-40">
+                    <input id="PetName" type="text" name="petname"> </input>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <span>
+                        <label>Email Address</label>
+                        <label style="color: red;">*</label>
+                    </span>
+                </div>
+                <div class="col-50">
+                    <input id="EmailAddress" type="text" placeholder="ex: myname@example.com" name="email"></input>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+
+                    <span>
+                        <label>Phone Number</label>
+                        <label style="color: red;" >*</label>
+                    </span>
+                </div>
+
+                <div class="col-15">
+                    <input id="AreaCode" type="text" name="area"></input>
+                    <Label>Area Code</Label>
+                </div>
+
+                <div class="col-5" style="text-align: center;">
+                    <Label>-</Label>
+                </div>
+
+                <div class="col-25">
+                    <input id="PhoneNumber" type="text" name="phone"></input>
+                    <Label>Phone Number</Label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <span>
+                        <label>Address</label>
+                        <label style="color: red;">*</label>
+                    </span>
+                </div>
+
+                <div class="col-50">
+                    <input id="StreetAddress" type="text" name="street"></input>
+                    <div><Label>Street Address</Label></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <span>
+                    </span>
+                </div>
+
+                <div class="col-25">
+                    <input id="City" type="text" name="city"></input>
+                    <Label>City</Label>
+                </div>
+
+                <div class="col-25">
+                    <input id="State" type="text" name="state"></input>
+                    <Label>State / Province</Label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <span>
+                    </span>
+                </div>
+
+                <div class="col-25">
+                    <input id="ZipCode" type="text" name="zip"></input>
+                    <Label>Postal / Zip Code</Label>
+                </div>
+
+                <div class="col-25">
+                    <select style="height:3em"name="country">
+                        <option>Please Select</option>
+                        <option>India</option>
+                    </select>
+                    <Label>Country</Label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <span>
+                        <label>Do you own any pets?</label>
+                        <label style="color: red;">*</label>
+                    </span>
+
+                </div>
+
+                <div class="col-50">
+                    <input id="AnyPets" type="text" name="anypet"></input>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-25">
+                    <span>
+                        <label>Pet Name(s)</label>
+
+                    </span>
+
+                </div>
+                <div class="col-50">
+                    <input id="PetNames" type="text" name="Petname1"></input>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-60">
+                   
+                    <input align="center" type="submit"  value="submit" onclick="SubmitForm()"/>
+
+                </div>
+
+            </div>
+        </form>
+        <div class="bottom">
+            <p>Copyright © 2021 <a href="main.html">Dogspot</a> All rights reserved</p>
+          </div>
+    </div>
+</body>
+<script></script>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    input[type=text],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    .container {
+        border-radius: 5px;
+        background-color: white;
+        padding: 20px;
+    }
+
+    .col-5 {
+        float: left;
+        width: 5%;
+        margin-top: 6px;
+    }
+
+    .col-15 {
+        float: left;
+        width: 15%;
+        margin-top: 6px;
+    }
+
+    .col-25 {
+        float: left;
+        width: 25%;
+        margin-top: 6px;
+    }
+
+    .col-30 {
+        float: left;
+        width: 30%;
+        margin-top: 6px;
+    }
+
+    .col-40 {
+        float: left;
+        width: 40%;
+        margin-top: 6px;
+    }
+
+    .col-50 {
+        float: left;
+        width: 50%;
+        margin-top: 6px;
+    }
+
+    .col-60 {
+        float: left;
+        width: 60%;
+        margin-top: 6px;
+    }
+
+    .col-75 {
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    p{
+        color: crimson;
+    }
+    a{
+        color:black;
+    }
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+
+        .col-25,
+        .col-75,
+        input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+</style>
+
+<script>
+    function SubmitForm() {
+
+
+        var isSuccess = ValidateForm();
+
+        if (isSuccess) {
+            loadHtmlFile();
+        }
+
+    }
+
+    function loadHtmlFile() {
+        var ajaxRequest = new XMLHttpRequest();
+        ajaxRequest.onload = function () {
+            document.getElementById("FormSubmittedMessage").innerHTML = this.responseText;
+        }
+        ajaxRequest.open("GET", "FormSubmitted.txt", true);
+        ajaxRequest.send();
+    }
+
+    function ValidateForm() {
+        var PerspectivePetParentFirstName = document.getElementById("PerspectivePetParentFirstName").value;
+        var PerspectivePetParentLastName = document.getElementById("PerspectivePetParentLastName").value;
+        var PetName = document.getElementById("PetName").value;
+        var EmailAddress = document.getElementById("EmailAddress").value;
+        var AreaCode = document.getElementById("AreaCode").value;
+        var PhoneNumber = document.getElementById("PhoneNumber").value;
+        var StreetAddress = document.getElementById("StreetAddress").value;
+        var City = document.getElementById("City").value;
+        var State = document.getElementById("State").value;
+        var ZipCode = document.getElementById("ZipCode").value;
+        var AnyPets = document.getElementById("AnyPets").value;
+
+        if (PerspectivePetParentFirstName === "") {
+            alert("First Name is not set");
+            return false;
+        }
+
+        if (PerspectivePetParentLastName === "") {
+            alert("Last Name is not set");
+            return false;
+        }
+
+        if (PetName === "") {
+            alert("Pet Name is not set");
+            return false;
+        }
+
+        if (EmailAddress === "") {
+            alert("Email Address is not set");
+            return false;
+        }
+
+        if (AreaCode === "") {
+            alert("Area Code is not set");
+            return false;
+        }
+
+        if (PhoneNumber === "") {
+            alert("Phone Number is not set");
+            return false;
+        }
+
+        if (StreetAddress === "") {
+            alert("Street Address is not set");
+            return false;
+        }
+
+        if (City === "") {
+            alert("City is not set");
+            return false;
+        }
+
+        if (State === "") {
+            alert("State is not set");
+            return false;
+        }
+
+        if (ZipCode === "") {
+            alert("ZipCode is not set");
+            return false;
+        }
+
+
+        if (AnyPets === "") {
+            alert("AnyPets is not set");
+            return false;
+        }
+
+        return true;
+    }
+
+
+</script>
+
+</html>

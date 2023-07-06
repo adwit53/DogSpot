@@ -1,0 +1,29 @@
+.dog{
+ margin-left: 20px;
+ margin-top: 25px; 
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+}
+.dogad{
+ float: left;
+ margin-left: 100px;
+ border:#070700;
+ border-style: double;
+ border-width: 8px;
+}
+.dogad h5{
+ color:black;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.cost{
+ color:black;
+}
+.list-group-item{
+    background-color: transparent;
+    color: aliceblue;
+   }
+   #billsum{
+    border: none;
+    margin-left: 0% auto;
+   }
